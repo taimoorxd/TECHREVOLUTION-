@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TECH REVOLUTION EMPOLYEES DATA CHART</title>
+    <style>
+        /* Add Tailwind CSS styles directly */
+        @import url('https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css');
+    </style>
+    <!-- Add your custom styles here if needed -->
+</head>
+<body class="bg-gray-200 h-screen flex items-center justify-center">
+
+    <div id="securityKeyPrompt" class="max-w-md w-full bg-white p-8 rounded-md shadow-md">
+        <h2 class="text-2xl font-semibold mb-6">Enter Security Key</h2>
+        <input type="password" id="securityKeyInput" class="w-full px-4 py-2 border rounded-md mb-4" placeholder="Enter security key">
+        <button onclick="checkSecurityKey()" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Submit</button>
+    </div>
+
+    <div id="successPage" class="hidden max-w-md w-full bg-white p-8 rounded-md shadow-md">
+        <h2 class="text-2xl font-semibold mb-6">Success! wait 5 seconds.</h2>
+        <!-- Add content for the success page -->
+        <script>
+            function checkSecurityKey() {
+                var enteredKey = document.getElementById("securityKeyInput").value;
+
+                if (enteredKey === "TECHREVOLUTION") {
+                    // If the entered key is correct, show the success page
+                    document.getElementById("securityKeyPrompt").style.display = "none";
+                    document.getElementById("successPage").style.display = "block";
+                    
+                    // Redirect to main.html after a delay (e.g., 3 seconds)
+                    setTimeout(function() {
+                        window.location.href = "main.html";
+                    }, 3000);
+                } else {
+                    // If the entered key is incorrect, you can add error handling here
+                    alert("Incorrect security key. Please try again.");
+                }
+            }
+        </script>
+    </div>
+</body>
+</html>
